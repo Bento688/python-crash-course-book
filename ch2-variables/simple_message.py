@@ -1,0 +1,2 @@
+message = "Kontol"
+print(message)
