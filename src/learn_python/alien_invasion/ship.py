@@ -1,13 +1,16 @@
 """Ship class"""
 
+from typing import TYPE_CHECKING
+
 import pygame
 
-from learn_python.alien_invasion.alien_invasion import AlienInvasion
+if TYPE_CHECKING:
+    from learn_python.alien_invasion.alien_invasion import AlienInvasion
 
 class Ship:
     """A class to manage a ship"""
 
-    def __init__(self, ai_game: AlienInvasion):
+    def __init__(self, ai_game: "AlienInvasion"):
         """Initialize the ship and set its starting position."""
 
         self.screen = ai_game.screen
