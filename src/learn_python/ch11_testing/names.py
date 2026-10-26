@@ -1,4 +1,4 @@
-from name_function import get_formatted_name
+from learn_python.ch11_testing.name_function import get_formatted_name
 
 print("Enter 'q' at any time to quit.")
 
