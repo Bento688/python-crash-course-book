@@ -4,6 +4,7 @@ import pygame
 
 from learn_python.alien_invasion.settings import Settings
 from learn_python.alien_invasion.ship import Ship
+from learn_python.alien_invasion.warthog import Warthog
 
 
 class AlienInvasion:
@@ -21,6 +22,7 @@ class AlienInvasion:
         pygame.display.set_caption("Alien Invasion")
 
         self.ship = Ship(self)
+        self.warthog = Warthog(self)
 
     def run_game(self):
         """Start the main loop for the game."""
@@ -41,6 +43,7 @@ class AlienInvasion:
         # Redraw the screen during each pass through the loop.
         self.screen.fill(self.settings.bg_color)
         self.ship.blitme()
+        self.warthog.blitme()
 
         # Make the most recently drawn screen visible.
         pygame.display.flip()
