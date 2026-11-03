@@ -37,9 +37,9 @@ class Ship:
 
     def update(self):
         """Update the position of the ship based on the movement flag."""
-        if self.moving_right:
+        if self.moving_right and self.rect.right < self.screen_rect.right:
             self.x += self.settings.ship_speed
-        if self.moving_left:
+        if self.moving_left and self.rect.left > self.screen_rect.left:
             self.x -= self.settings.ship_speed
         # LSP error: "float" is not assignable to "int" [reportAttributeAccessIssue]
         # but the author said it's fine(?) I have no fucking clue why we do it this way.
