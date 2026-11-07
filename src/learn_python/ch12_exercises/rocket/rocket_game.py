@@ -58,13 +58,13 @@ class RocketGame:
 
     def _check_keydown_events(self, event):
         """Respond to keypresses"""
-        if event.key == pygame.K_RIGHT:
+        if event.key == pygame.K_l:
             self.rocket.moving_right = True
-        if event.key == pygame.K_LEFT:
+        if event.key == pygame.K_h:
             self.rocket.moving_left = True
-        if event.key == pygame.K_UP:
+        if event.key == pygame.K_k:
             self.rocket.moving_up = True
-        if event.key == pygame.K_DOWN:
+        if event.key == pygame.K_j:
             self.rocket.moving_down = True
         if event.key == pygame.K_q:
             # exit on 'q'
@@ -72,13 +72,13 @@ class RocketGame:
 
     def _check_keyup_events(self, event):
         """Respond to key releases"""
-        if event.key == pygame.K_RIGHT:
+        if event.key == pygame.K_l:
             self.rocket.moving_right = False
-        if event.key == pygame.K_LEFT:
+        if event.key == pygame.K_h:
             self.rocket.moving_left = False
-        if event.key == pygame.K_UP:
+        if event.key == pygame.K_k:
             self.rocket.moving_up = False
-        if event.key == pygame.K_DOWN:
+        if event.key == pygame.K_j:
             self.rocket.moving_down = False
 
     def _update_screen(self):
