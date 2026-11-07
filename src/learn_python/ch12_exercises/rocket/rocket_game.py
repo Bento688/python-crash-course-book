@@ -14,13 +14,13 @@ import sys
 
 import pygame
 
-from learn_python.ch12_exercises.rocket.settings import Settings
 from learn_python.ch12_exercises.rocket.rocket import Rocket
+from learn_python.ch12_exercises.rocket.settings import Settings
+
 
 class RocketGame:
     """Overall class to create the Rocket game."""
 
-    # constructor
     def __init__(self):
         """Initialize the game, and create initial game resources"""
 
@@ -29,15 +29,12 @@ class RocketGame:
         self.clock = pygame.time.Clock()
         self.settings = Settings()
 
-        # initialize resources
         self.screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
         self.settings.screen_width = self.screen.get_rect().width
         self.settings.screen_height = self.screen.get_rect().height
 
-        # intialize the other entities (rocket)
         self.rocket = Rocket(self)
 
-    # main game loop
     def run_game(self):
         """Start the game"""
         while True:
@@ -92,7 +89,6 @@ class RocketGame:
         pygame.display.flip()
 
 
-# run game
 if __name__ == "__main__":
     game = RocketGame()
     game.run_game()
