@@ -38,31 +38,41 @@ class Rocket:
     def update(self):
         """Update the position of the rocket based on the movement flag and positions."""
         # using the flags, update the position
-        if self._check_boundaries():
-            if self.moving_right:
-                self.x += self.settings.rocket_speed
-            if self.moving_left:
-                self.x -= self.settings.rocket_speed
-            if self.moving_up:
-                self.y -= self.settings.rocket_speed
-            if self.moving_down:
-                self.y += self.settings.rocket_speed
+        speed = self.settings.rocket_speed
+        if self.moving_right:
+            value = self.x + speed
+            if self._check_new_values("h", value):
+                self.x = value
+        if self.moving_left:
+            value = self.x - speed
+            if self._check_new_values("h", value):
+                self.x = value
+        if self.moving_up:
+            value = self.y - speed
+            if self._check_new_values("v", value):
+                self.y = value
+        if self.moving_down:
+            value = self.y + speed
+            if self._check_new_values("v", value):
+                self.y = value
 
         # don't mind the error they will just be ignored
         self.rect.x = self.x
         self.rect.y = self.y
 
+    def _check_new_values(self, orientation, value):
+        """Check if the new values are going to be within the scope"""
 
-    def _check_boundaries(self):
-        if (
-            self.rect.left < self.screen_rect.left
-            or self.rect.right < self.screen_rect.right
-            or self.rect.top < self.screen_rect.top
-            or self.rect.bottom < self.screen_rect.bottom
-        ):
-            return True
-        else:
-            return False
+        right = self.screen_rect.right
+        left = self.screen_rect.left
+        top = self.screen_rect.top
+        bottom = self.screen_rect.bottom
+
+        if orientation == "h":
+            return value >= left and value + self.rect.width <= right
+
+        elif orientation == "v":
+            return value >= top and value + self.rect.height <= bottom
 
     def blitme(self):
         """Draw the rocket at its current location."""

@@ -13,4 +13,4 @@ class Settings:
         self.bg_color = (38, 37, 34)
 
         # speed of the ship
-        self.rocket_speed = 1.5
+        self.rocket_speed = 5
